@@ -1,0 +1,9 @@
+set -o vi
+
+# aliases
+unalias -a
+alias ll="ls -al"
+alias vi=vim
+alias c=clear
+
+export PATH=$HOME/repos/db.git/0cl/dotfiles/scripts:$PATH

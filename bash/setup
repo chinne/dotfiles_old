@@ -1,0 +1,5 @@
+#!/bin/sh
+echo Configuring BASH
+ln -sf "$PWD/bashconfig" "$HOME/.bash_aliases"
+ls -la ~/.bash_aliases
+

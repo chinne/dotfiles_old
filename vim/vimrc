@@ -1,0 +1,56 @@
+set nocompatible
+
+set number
+set relativenumber
+
+" automatically indent new lines
+
+set ruler
+
+set tabstop=4 
+set softtabstop=4
+set shiftwidth=4
+set smartindent
+set smarttab
+
+" stop vim from silently fucking with files that it shouldn't 
+set nofixendofline
+
+" replace tabs with spaces automatically
+set expandtab
+
+set noerrorbells
+set nowrap
+set incsearch
+set signcolumn=yes
+set colorcolumn=80
+
+" more risky, but cleaner
+set nobackup
+set noswapfile
+set nowritebackup
+
+" stop complaints about switching buffer with changes
+set hidden
+
+" here because plugins and stuff need it
+syntax enable
+
+" Install vim-plug if not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall 
+endif
+
+" load all the plugins
+call plug#begin('~/.vimplugins')
+Plug 'gruvbox-community/gruvbox'
+call plug#end()
+
+set background=dark
+colorscheme gruvbox
+
+let mapleader=" "
+
+au bufnewfile,bufRead bashconfig set filetype=sh
