@@ -8,3 +8,4 @@ alias c=clear
 alias p=python
 
 export PATH=$HOME/repos/github.com/chinne/dotfiles/scripts:$PATH
+export PATH=/usr/local/go/bin:$PATH

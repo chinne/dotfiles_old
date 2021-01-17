@@ -25,6 +25,9 @@ set incsearch
 set signcolumn=yes
 set colorcolumn=80
 
+" prevents truncated yanks, deletes, etc.
+set viminfo='20,<1000,s1000
+
 " more risky, but cleaner
 set nobackup
 set noswapfile
