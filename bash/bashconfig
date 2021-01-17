@@ -5,5 +5,6 @@ unalias -a
 alias ll="ls -al"
 alias vi=vim
 alias c=clear
+alias p=python
 
-export PATH=$HOME/repos/db.git/0cl/dotfiles/scripts:$PATH
+export PATH=$HOME/repos/github.com/chinne/dotfiles/scripts:$PATH
