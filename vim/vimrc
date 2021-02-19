@@ -7,13 +7,13 @@ set relativenumber
 
 set ruler
 
-set tabstop=4 
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smartindent
 set smarttab
 
-" stop vim from silently fucking with files that it shouldn't 
+" stop vim from silently fucking with files that it shouldn't
 set nofixendofline
 
 " replace tabs with spaces automatically
@@ -43,17 +43,33 @@ syntax enable
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall 
+  autocmd VimEnter * PlugInstall
 endif
 
 " load all the plugins
 call plug#begin('~/.vimplugins')
+"theme
 Plug 'gruvbox-community/gruvbox'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
+Plug 'dense-analysis/ale'
 call plug#end()
+
+"""""" ALE
+let g:ale_linters = {'python': ['flake8', 'pydocstyle', 'bandit', 'mypy']} " pylint
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort']
+\}
+let g:ale_fix_on_save = 1
+
 
 set background=dark
 colorscheme gruvbox
 
 let mapleader=" "
+let python_highlight_all=1
+syntax on
 
 au bufnewfile,bufRead bashconfig set filetype=sh
