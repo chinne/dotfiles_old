@@ -2,10 +2,11 @@ set -o vi
 
 # aliases
 unalias -a
-alias ll="ls -al"
+alias ll="ls -ahl"
 alias vi=vim
 alias c=clear
 alias p=python
 
+alias python_git='cd ~/repos/github.com/chinne/a-little-python;conda activate learning'
 export PATH=$HOME/repos/github.com/chinne/dotfiles/scripts:$PATH
 export PATH=/usr/local/go/bin:$PATH

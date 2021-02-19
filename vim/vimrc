@@ -49,6 +49,7 @@ endif
 " load all the plugins
 call plug#begin('~/.vimplugins')
 Plug 'gruvbox-community/gruvbox'
+Plug 'fannheyward/coc-pyright'
 call plug#end()
 
 set background=dark
