@@ -7,13 +7,13 @@ set relativenumber
 
 set ruler
 
-set tabstop=4 
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smartindent
 set smarttab
 
-" stop vim from silently fucking with files that it shouldn't 
+" stop vim from silently fucking with files that it shouldn't
 set nofixendofline
 
 " replace tabs with spaces automatically
@@ -43,18 +43,71 @@ syntax enable
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall 
+  autocmd VimEnter * PlugInstall
 endif
 
 " load all the plugins
 call plug#begin('~/.vimplugins')
+"theme
 Plug 'gruvbox-community/gruvbox'
 Plug 'fannheyward/coc-pyright'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
+Plug 'dense-analysis/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
+
+let mapleader=" "
+"""""" ALE
+let g:ale_linters = {'python': ['flake8', 'pydocstyle', 'bandit', 'mypy']} " pylint
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort']
+\}
+nmap <F10> :ALEFix<CR>
+let g:ale_fix_on_save = 1
+
 
 set background=dark
 colorscheme gruvbox
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+" Leader is default \
+let python_highlight_all=1
+syntax on
 
-let mapleader=" "
+" au BufNewFile,BufRead *.py
+"     \ set expandtab       | " replace tabs with spaces
+"     \ set autoindent      | " copy indent when starting a new line
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+" set foldmethod=indent
 
+" nnoremap <space> za
 au bufnewfile,bufRead bashconfig set filetype=sh
+
+" disable autoindent when pasting text
+" source: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+" mouse
+set mouse=a
+let g:is_mouse_enabled = 1
+noremap <silent> <Leader>m :call ToggleMouse()<CR>
+function ToggleMouse()
+  if g:is_mouse_enabled == 1
+    echo "Mouse OFF"
+    set mouse=
+    let g:is_mouse_enabled = 0
+  else
+    echo "Mouse ON"
+    set mouse=a
+    let g:is_mouse_enabled = 1
+  endif
+endfunction
