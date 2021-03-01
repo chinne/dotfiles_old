@@ -50,6 +50,7 @@ endif
 call plug#begin('~/.vimplugins')
 "theme
 Plug 'gruvbox-community/gruvbox'
+Plug 'fannheyward/coc-pyright'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'

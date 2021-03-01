@@ -2,7 +2,7 @@ set -o vi
 
 # aliases
 unalias -a
-alias ll="ls -al"
+alias ll="ls -ahl"
 alias vi=vim
 alias c=clear
 alias p=python
@@ -10,6 +10,7 @@ alias python=python3
 alias dotfiles_common="cd $HOME/repos/github.com/chinne/dotfiles"
 alias github="cd $HOME/repos/github.com"
 alias gitlab="cd $HOME/repos/gitlab.com"
+alias python_git='cd ~/repos/github.com/chinne/a-little-python;conda activate learning'
 
 source $HOME/repos/github.com/chinne/dotfiles/private/ssh
 export PATH=$HOME/repos/github.com/chinne/dotfiles/scripts:$PATH
