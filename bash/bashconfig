@@ -8,7 +8,10 @@ alias c=clear
 alias p=python
 alias python=python3
 alias dotfiles_common="cd $HOME/repos/github.com/chinne/dotfiles"
+alias github="cd $HOME/repos/github.com"
+alias gitlab="cd $HOME/repos/gitlab.com"
 
 source $HOME/repos/github.com/chinne/dotfiles/private/ssh
 export PATH=$HOME/repos/github.com/chinne/dotfiles/scripts:$PATH
 export PATH=/usr/local/go/bin:$PATH
+export PATH=/opt/liquibase:$PATH
